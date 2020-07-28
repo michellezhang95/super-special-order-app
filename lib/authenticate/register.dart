@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:orderingapp/services/auth.dart';
-import 'package:orderingapp/authenticate/register.dart';
 
-class SignIn extends StatefulWidget {
+class Register extends StatefulWidget {
+  //constructor
+
   final Function toggleView;
-  SignIn({this.toggleView});
+  Register({this.toggleView});
   @override
-  _SignInState createState() => _SignInState();
+  _RegisterState createState() => _RegisterState();
 }
 
-class _SignInState extends State<SignIn> {
+class _RegisterState extends State<Register> {
   final AuthService _auth = AuthService();
-
   //text field state
   String email = '';
   String password = '';
@@ -22,14 +22,14 @@ class _SignInState extends State<SignIn> {
         appBar: AppBar(
           backgroundColor: Colors.brown[400],
           elevation: 0.0,
-          title: Text('Sign in to Ordering App'),
+          title: Text('Register to Ordering App'),
           actions: <Widget>[
             FlatButton.icon(
               onPressed: () async {
                 widget.toggleView();
               },
               icon: Icon(Icons.person),
-              label: Text('Register'),
+              label: Text('Sign In'),
             )
           ],
         ),
@@ -55,7 +55,7 @@ class _SignInState extends State<SignIn> {
                   RaisedButton(
                       color: Colors.pink[400],
                       child: Text(
-                        'Sign In',
+                        'Register',
                         style: TextStyle(color: Colors.white),
                       ),
                       onPressed: () async {
