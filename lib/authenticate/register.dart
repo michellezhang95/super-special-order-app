@@ -12,10 +12,11 @@ class Register extends StatefulWidget {
 
 class _RegisterState extends State<Register> {
   final AuthService _auth = AuthService();
-  final _formKey = GlobalKey<FormState>(); //used to identify form
+  final _formKey = GlobalKey<FormState>(); //used for form validation
   //text field state
   String email = '';
   String password = '';
+  String error = '';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -69,10 +70,16 @@ class _RegisterState extends State<Register> {
                         if (_formKey.currentState
                             .validate()) //validate form based on state
                         {
-                          print(email);
-                          print(password);
+                          dynamic result = await _auth
+                              .registerWithEmailAndPassword(email, password);
+                          if (result == null) {
+                            setState(() => error = 'Please enter valid email');
+                          }
                         } else {}
                       }),
+                  SizedBox(height: 12.0),
+                  Text(error,
+                      style: TextStyle(color: Colors.red, fontSize: 14.0)),
                 ],
               ),
             )));

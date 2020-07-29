@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:orderingapp/services/auth.dart';
-import 'package:orderingapp/services/auth.dart';
 
 class Home extends StatelessWidget {
   final AuthService _auth = AuthService();

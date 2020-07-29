@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:orderingapp/authenticate/authenticate.dart';
 import 'package:orderingapp/home/home.dart';
-import 'package:orderingapp/services/auth.dart';
 import 'package:provider/provider.dart';
 import 'package:orderingapp/models/user.dart';
 
